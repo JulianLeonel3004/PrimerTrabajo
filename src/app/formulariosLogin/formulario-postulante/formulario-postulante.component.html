@@ -1,0 +1,110 @@
+
+<ng-container *ngIf="!verRegistro">
+    <form [formGroup]="inicioSesion" (ngSubmit)="onSubmitSesion()" class="formulario">
+        
+       <div class="row">
+            <div class="col-lg-4">
+                ¿Es un postulante o un reclutador?
+            </div>
+            <div class="col-lg-5">
+              <!--  <ng-select [items]="this.tiposDePerfiles" formControlName="perfil" binLabel="name" binValue="id"></ng-select>-->
+            </div>
+       </div>   
+
+        <br>
+
+        <div class="row">
+            <div class="col-lg-4">
+                Email
+            </div>
+            <div class="col-lg-5">
+                <input type="text" class="form-control input" formControlName="email" name="email" maxlength="50">
+                <div class="alert-danger" *ngIf="inicioSesion.get('email').touched && inicioSesion.get('email').hasError('pattern')">*El campo email es obligatorio</div>
+            </div>
+
+        </div>
+
+        <br>
+        
+        <div class="row">
+            <div class="col-lg-4">
+            Contraseña
+            </div>
+
+            <div class="col-lg-5">
+                <input type="password" class="form-control input" formControlName="password" name="password" maxlength="50">
+            <div class="alert-danger" *ngIf="inicioSesion.get('password').touched && inicioSesion.get('password').hasError('required')">*Debe ingresar su contraseña</div>
+            </div>
+        </div>
+
+        <br>
+
+        <div class="row">
+            <div class="col-lg-5">
+            </div>
+            <button type="submit" class="btn btn-success" [disabled]="inicioSesion.invalid">Iniciar Sesión</button>
+        </div>
+        <br>
+        <p class="cambioDeFormulario" (click)="mostrarRegistro(true)">Registrarse</p> 
+        
+    </form>
+</ng-container>
+
+
+<ng-container *ngIf="verRegistro">
+    <form [formGroup]="registro" (ngSubmit)="onSubmitRegistro()" class="formulario">
+        
+        <h3>Postulante</h3>
+
+        <br>
+
+        <div class="row">
+            <div class="col-lg-4">
+                Nombre de usuario
+            </div>
+            <div class="col-lg-5">
+                <input type="text" class="form-control input" formControlName="nick" name="nick" maxlength="50">
+                <div class="alert-danger" *ngIf="registro.get('nick').touched && registro.get('nick').hasError('pattern')">*El campo nombre de usuario es obligatorio</div>    
+            </div>
+        </div>
+
+        <br>
+
+        <div class="row">
+            <div class="col-lg-4">
+                Email
+            </div>
+            <div class="col-lg-5">
+                <input type="text" class="form-control input" formControlName="email" name="email" maxlength="50">
+                <div class="alert-danger" *ngIf="registro.get('email').touched && registro.get('email').hasError('pattern')">*El campo email es obligatorio</div>
+            </div>
+
+        </div>
+
+        <br>
+        
+        <div class="row">
+            <div class="col-lg-4">
+            Contraseña
+            </div>
+
+            <div class="col-lg-5">
+                <input type="password" class="form-control input" formControlName="password" name="password" maxlength="50">
+            <div class="alert-danger" *ngIf="registro.get('password').touched && registro.get('password').hasError('required')">*Debe ingresar su contraseña</div>
+            </div>
+        </div>
+
+        <br>
+
+        <div class="row">
+            <div class="col-lg-5">
+            </div>
+            <button type="submit" class="btn btn-success" [disabled]="registro.invalid">Registrarse</button>
+        </div>
+        
+        <br>
+     
+        <p class="cambioDeFormulario" (click)="mostrarRegistro(false)">Iniciar Sesión</p> 
+
+    </form>
+</ng-container>
