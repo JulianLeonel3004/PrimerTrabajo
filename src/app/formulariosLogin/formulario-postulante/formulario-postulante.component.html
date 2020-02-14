@@ -6,8 +6,16 @@
             <div class="col-lg-4">
                 ¿Es un postulante o un reclutador?
             </div>
-            <div class="col-lg-5">
-              <!--  <ng-select [items]="this.tiposDePerfiles" formControlName="perfil" binLabel="name" binValue="id"></ng-select>-->
+            <div class="btn-group btn-group-toggle" ngbRadioGroup name="radioBasic">
+                
+                <label ngbButtonLabel class="btn-primary">
+                  <input ngbButton type="radio" [value]="Postulante" (click)="cargarPerfil('Postulante')"> Postulante
+                </label>
+
+                <label ngbButtonLabel class="btn-primary">
+                    <input ngbButton type="radio" value="Reclutador" (click)="cargarPerfil('Reclutador')"> Reclutador
+                </label>
+
             </div>
        </div>   
 

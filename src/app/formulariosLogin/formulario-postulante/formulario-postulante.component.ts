@@ -13,6 +13,7 @@ export class FormularioPostulanteComponent implements OnInit {
   tiposDePerfiles = ["1","2"];
   simpleItems = [];
   verRegistro:boolean;
+  perfil:string;
 
   constructor(private formbuilder:FormBuilder) { }
 
@@ -70,6 +71,10 @@ export class FormularioPostulanteComponent implements OnInit {
     
   }
 
+  cargarPerfil(perfil:string){
+    console.log(perfil);
+    
+  }
 
   onSubmitRegistro(){
 
