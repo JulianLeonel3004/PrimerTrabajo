@@ -10,15 +10,15 @@ export class FormularioPostulanteComponent implements OnInit {
  
   inicioSesion:FormGroup;
   registro:FormGroup;
-  tiposDePerfiles = ["1","2"];
-  simpleItems = [];
   verRegistro:boolean;
   perfil:string;
+
+  mensajePasswordInvalido:string = null;
+
 
   constructor(private formbuilder:FormBuilder) { }
 
   ngOnInit() {
-    this.simpleItems = [true, 'Two', 3];
     this.cargarTiposDePerfiles();
     this.verRegistro = false;
     this.cargarFormularios();
@@ -27,17 +27,12 @@ export class FormularioPostulanteComponent implements OnInit {
 
 
   cargarTiposDePerfiles(){
-    /*this.tiposDePerfiles = new Array<ItemsMultiSelect>();
-
-    this.tiposDePerfiles.push({name:"Postulante",value:true});
-    this.tiposDePerfiles.push({name:"Reclutador",value: false});*/
-
   }
 
 
   cargarFormularios(){
     this.registro = this.formbuilder.group({
-      perfil:[null,Validators.required],
+      perfil:[null, Validators.required],
       nick:[null,[Validators.required,Validators.maxLength(50)]],
       email:[
         null,[ Validators.maxLength(50),
@@ -50,8 +45,6 @@ export class FormularioPostulanteComponent implements OnInit {
     });
 
     this.inicioSesion =  this.formbuilder.group({
-      
-      perfil:[null,Validators.required],
       email:[
         null,[Validators.required, 
         Validators.maxLength(50), 
@@ -61,23 +54,38 @@ export class FormularioPostulanteComponent implements OnInit {
     });
   }
 
+  validarPassword(){
+    if(this.registro.controls.password2.value != this.registro.controls.password.value)
+      this.mensajePasswordInvalido = "*Las contraseñas son distintas";
+    else
+      this.mensajePasswordInvalido = null;
+      
+  }
 
   mostrarRegistro(value:boolean){
     this.verRegistro = value;
   }
 
+
+  cargarPerfil(perfil:string){
+    this.registro.controls.perfil.setValue(perfil);
+  }
+
+
+  
   onSubmitSesion(){
+
     console.log(this.inicioSesion);
     
   }
 
-  cargarPerfil(perfil:string){
-    console.log(perfil);
-    
-  }
-
   onSubmitRegistro(){
-
+    this.validarPassword();
+    if(this.mensajePasswordInvalido!=null)
+      return;
+      
+    
+    
   }
 
 }
