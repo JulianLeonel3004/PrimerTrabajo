@@ -1,22 +1,15 @@
 
-
- .search-box {
-    margin: 20px 0;
-  
- }
- .label {
-    line-height: 38px;
-    padding-right: 10px;
-  }
-
-.fa.fa-filter{
-    font-size: 20px;
+.containerTable{
+  max-width: 641px;
+  background-color: red;
 }
 
-.form-control:focus {
-  box-shadow: none; 
-}
 
+.display{
+  margin-top: 10px;
+  display: block;
+  overflow-x:auto;
+}
 
 .table{
   min-width: 694px;
@@ -27,10 +20,10 @@
   border:1px solid rgba(255,255,255,1);
   border-top-right-radius: 10px;
   background: rgba(243,243,243,0.2);
- 
-
   width: 94%;
   margin: 0 3%;
+
+  
 }
 th {
     background-color: rgba(242,245,247,1);
@@ -38,72 +31,13 @@ th {
     font-weight: 500;
     border-bottom: 2px solid  rgba(255,255,255,1);
     cursor: pointer;
-    
-
-
   
  }
- .fa {
-    color: rgba(136,136,136,1);
-  }
   tr:hover {
     background: rgba(245,245,245,1);
   }
 
-  a {
-    font-weight: 600;
-  }
 
-
-  
-
-
-.container p{
-  margin-top: 8px;
-  padding-right: 100px;
-}
-
-
-
-
-.pagination {
-  background: red;
-}
-
-.btn-circle {
-  width: 40px;
-  height: 40px;
-  font-size: 18px;
-  line-height: 1.33;
-  border-radius: 25px;
-  text-align: center;
-  background-color: #002247;
-  color: white;
-  box-shadow: 2px 2px 3px rgb(163, 161, 161);
-  position: relative;
-  transition: all 1s ease;
-}
-
-.btn-circle:hover
-{ 
-  background: #98c3de;
-  transition: all 1s ease;
-}
-
-.anchoLimite{
-  min-width: 694px;
-}
-
-.container{
-  margin-left: 44px!important;
-
-}
-
-.fixBtnNuevaSolicitud{
-  position: absolute;
-  right: 41px;
-}
-
-.alignSearchBox{
-  margin-left: -18px;
+.fa, .fas {
+  padding-top:10px;
 }

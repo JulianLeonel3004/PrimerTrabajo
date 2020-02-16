@@ -16,15 +16,14 @@ import { InicioComponent } from './inicio/inicio.component';
 import { TablaComponent } from './inicio/tabla/tabla.component';
 
 @NgModule({
-  declarations: [
-    
+  declarations: [ 
     AppComponent,
     HomeComponent,
     PerfilesComponent,
     FormularioPostulanteComponent,
     HeaderComponent,
     InicioComponent,
-    TablaComponent,
+    TablaComponent
     
   ],
   imports: [
