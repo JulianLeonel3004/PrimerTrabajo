@@ -14,6 +14,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { HeaderComponent } from './shared/header/header.component';
 import { InicioComponent } from './inicio/inicio.component';
 import { TablaComponent } from './inicio/tabla/tabla.component';
+import { PostulantesComponent } from './perfiles/postulantes/postulantes.component';
+import { ReclutadoresComponent } from './perfiles/reclutadores/reclutadores.component';
 
 @NgModule({
   declarations: [ 
@@ -23,7 +25,9 @@ import { TablaComponent } from './inicio/tabla/tabla.component';
     FormularioPostulanteComponent,
     HeaderComponent,
     InicioComponent,
-    TablaComponent
+    TablaComponent,
+    PostulantesComponent,
+    ReclutadoresComponent
     
   ],
   imports: [
@@ -34,7 +38,7 @@ import { TablaComponent } from './inicio/tabla/tabla.component';
     NgbModule,
     MatFormFieldModule,
     ReactiveFormsModule,
-    NgSelectModule,
+    NgSelectModule
   
   ],
   providers: [],
