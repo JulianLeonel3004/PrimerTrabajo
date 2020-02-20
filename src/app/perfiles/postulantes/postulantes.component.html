@@ -1,1 +1,147 @@
-<p>postulantes works!</p>
+<form [formGroup]="perfilPostulante" (ngSubmit)="onSubmit()">
+
+  <div class="miContainer">
+      
+    <h2>Curriculum Vitae</h2>
+    <br>
+            <div class="row">
+                <div class="col-lg-4">
+                    Fecha de Nacimiento
+                </div>
+                <div class="col-lg-5">
+                    <input type="date" class="form-control input" formControlName="fechaDeNacimieno" name="fechaDeNacimieno">
+                    <!--<div class="text-danger small" >*El campo email es obligatorio</div>-->
+                </div>
+    
+            </div>
+
+            <br>
+
+            <div class="row">
+                <div class="col-lg-4">
+                    Nacionalidad
+                </div>
+                <div class="col-lg-5">
+                    <input type="text" class="form-control input" formControlName="nacionalidad" name="nacionalidad" maxlength="50"> <!--Se debe implementar una base de datos de paises-->
+                    <!--<div class="text-danger small" >*El campo email es obligatorio</div>-->
+                </div>
+    
+            </div>
+
+            <br>
+
+            <div class="row">
+                <div class="col-lg-4">
+                    Provincia
+                </div>
+                <div class="col-lg-5">
+                    <input type="text" class="form-control input" formControlName="provincia" name="provincia" maxlength="50"> <!--Se debe implementar una base de datos de paises-->
+                    <!--<div class="text-danger small" >*El campo email es obligatorio</div>-->
+                </div>
+    
+            </div>
+
+            <br>
+
+            <div class="row">
+                <div class="col-lg-4">
+                    Email
+                </div>
+                <div class="col-lg-5">
+                    <input type="text" class="form-control input" formControlName="email" name="email" maxlength="50">
+                    <!--<div class="text-danger small" >*El campo email es obligatorio</div>-->
+                </div>
+    
+            </div>
+
+            <br>
+
+            <div class="row">
+                <div class="col-lg-4">
+                    Linkedin
+                </div>
+                <div class="col-lg-5">
+                    <input type="url" class="form-control input" formControlName="linkedin" name="linkedin" maxlength="50">
+                    <!--<div class="text-danger small" >*El campo email es obligatorio</div>-->
+                </div>
+    
+            </div>
+
+            <br>
+
+            <div class="row">
+                <div class="col-lg-4">
+                    Portfolio
+                </div>
+                <div class="col-lg-5">
+                    <input type="url" class="form-control input" formControlName="ortfolio" name="portfolio" maxlength="50">
+                    <!--<div class="text-danger small" >*El campo email es obligatorio</div>-->
+                </div>
+    
+            </div>
+
+            <br>
+
+            <div class="row">
+                <div class="col-lg-4">
+                    Formación Academica
+                </div>
+                <div class="col-lg-5">
+                    <input type="text" class="form-control input" formControlName="formacion" name="formacion" maxlength="50"> <!--Implementar radio buttons y base de datos de universidades-->
+                    <!--<div class="text-danger small" >*El campo email es obligatorio</div>-->
+                </div>
+    
+            </div>
+
+            <br>
+
+            <div class="row">
+                <div class="col-lg-4">
+                    Lenguajes de Programación
+                </div>
+                <div class="col-lg-5">
+                    <input type="text" class="form-control input" formControlName="lenguajes" name="lenguajes" maxlength="50"> <!--que sean tags, base de datos de lenguajes-->
+                    <!--<div class="text-danger small" >*El campo email es obligatorio</div>-->
+                </div>
+    
+            </div>
+
+            <br>
+
+            <div class="row">
+                <div class="col-lg-4">
+                    Bases de Datos
+                </div>
+                <div class="col-lg-5">
+                    <input type="text" class="form-control input" formControlName="baseDeDatos" name="baseDeDatos" maxlength="50"><!--idem lenguajes de programación-->
+                    <!--<div class="text-danger small" >*El campo email es obligatorio</div>-->
+                </div>
+    
+            </div>
+
+            <br>
+
+            <div class="row">
+                <div class="col-lg-4">
+                    Idiomas
+                </div>
+                <div class="col-lg-5">
+                    <input type="text" class="form-control input" formControlName="idiomas" name="idiomas" maxlength="50"> <!--Basde de datos de idiomas-->
+                    <!--<div class="text-danger small" >*El campo email es obligatorio</div>-->
+                </div>
+    
+            </div>
+
+            <br>
+
+            <div class="row">
+                <div class="col-lg-5">
+                </div>
+                <button type="submit" class="btn btn-success">Guardar Cambios</button>
+            </div>
+
+        </div>
+
+        
+
+</form>

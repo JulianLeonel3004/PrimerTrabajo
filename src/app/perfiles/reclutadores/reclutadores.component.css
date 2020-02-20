@@ -1,0 +1,11 @@
+.miContainer{
+    margin-left:20%;
+    margin-right:20%;
+}
+
+.bloqueBusqueda{
+    margin-top: 50px;
+    margin-bottom: 50px;
+    padding: 50px;
+    border: 1px black solid;
+}
