@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AuthenticationService } from 'src/app/Core/services/authentication.service';
+import { UsuariosService } from 'src/app/Core/services/usuarios.service';
 
 @Component({
   selector: 'app-formulario-postulante',
@@ -15,14 +17,60 @@ export class FormularioPostulanteComponent implements OnInit {
 
   mensajePasswordInvalido:string = null;
 
-
-  constructor(private formbuilder:FormBuilder) { }
+  constructor(private formbuilder:FormBuilder, 
+    private authenticationService:AuthenticationService,
+    private userService:UsuariosService) { }
 
   ngOnInit() {
     this.cargarTiposDePerfiles();
     this.verRegistro = false;
     this.cargarFormularios();
     
+  }
+
+  login(){
+   this.authenticationService.loginWithEmail(this.inicioSesion.controls.email.value,this.inicioSesion.controls.password.value).then((data)=>{
+    alert('logeado correctamte');
+    console.log(data);
+    
+   }).catch((error)=>{
+     alert('ocurrió un error');
+     console.log(error);
+     
+   });
+  }
+
+  logout(){
+    this.authenticationService.logout();
+  }
+
+  register(){
+    this.authenticationService.registerWithEmail(this.registro.controls.email.value, this.registro.controls.password.value).then((data)=>{
+      
+      const user = {
+
+        uid: data.user.uid,
+        email: data.user.email,
+        nombre: this.registro.controls.nombre.value,
+        apellido: this.registro.controls.apellido.value,
+        pais:  this.registro.controls.pais.value,
+        provincia:  this.registro.controls.provincia.value,
+        puesto:  this.registro.controls.puesto.value,
+        linkedin: this.registro.controls.linkedin?this.registro.controls.linkedin.value:null,
+        portfolio: this.registro.controls.portfolio?this.registro.controls.portfolio.value:null
+
+      };
+      this.userService.createUser(user).then(()=>{
+        
+        alert("Registrado Correctamente");
+        
+      });
+      
+    }).catch((error)=>{
+      
+      alert('ocurrió un error:' + error.message);
+      
+    });
   }
 
 
@@ -32,13 +80,19 @@ export class FormularioPostulanteComponent implements OnInit {
 
   cargarFormularios(){
     this.registro = this.formbuilder.group({
-      perfil:[null, Validators.required],
-      nick:[null,[Validators.required,Validators.maxLength(50)]],
+      nombre:[null,[Validators.maxLength(50),Validators.required]],
+      apellido:[null,[Validators.maxLength(50),Validators.required]],
+      pais:[null,[Validators.maxLength(50),Validators.required]],
+      provincia:[null,[Validators.maxLength(50),Validators.required]],
+      puesto:[null,[Validators.maxLength(50),Validators.required]],
       email:[
         null,[ Validators.maxLength(50),
           Validators.pattern(/^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/),
           Validators.required]
         ],
+      
+      linkedin:[null,[Validators.maxLength(200)]],
+      portfolio:[null,[Validators.maxLength(200)]],
       password:[null,[Validators.required,Validators.maxLength(50)]],
       password2:[null, [Validators.required,Validators.maxLength(50)]]
 
@@ -81,11 +135,8 @@ export class FormularioPostulanteComponent implements OnInit {
 
   onSubmitRegistro(){
     this.validarPassword();
-    if(this.mensajePasswordInvalido!=null)
-      return;
-      
-    
-    
+    if(this.mensajePasswordInvalido==null)
+      this.register();
   }
 
 }

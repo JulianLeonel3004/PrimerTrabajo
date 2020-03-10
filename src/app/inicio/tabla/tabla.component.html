@@ -1,10 +1,15 @@
+<div style="background-color: whitesmoke;">
+  <h3>Postulantes a trainee o JR sin Experiencia</h3>
 
-  <h3>Empleos</h3>
+  <p>Para aparecener en la tabla, debe registrarse clickeado en en el botón de "registrar" que se muestra arriba</p>
+</div>
+
+<br>
 
 <div class="row">
   <div class="col-lg-1"><!--Espacio--></div>
   <div class="col-lg-3">
-      <input type="text" class="form-control" placeholder="Buscar">
+      <input type="text" class="form-control" placeholder="Buscar" [(ngModel)]="query">
   </div>
   <span class="fas fa-search"></span>
 </div>
@@ -23,13 +28,14 @@
     </thead>
     
     <tbody>
-      <tr *ngFor="let fila of this.filas">
-        <td>{{fila.empresa}}</td>
+      <tr *ngFor="let fila of this.filas | search:query">
+        <td>{{fila.nombreYApellido}}</td>
         <td>{{fila.pais}}</td>
-        <td>{{fila.lugar}}</td>
+        <td>{{fila.provincia}}</td>
         <td>{{fila.puesto}}</td>
         <td>{{fila.contacto}}</td>
-        <td>{{fila.reclutador}}</td>
+        <td><a href="{{fila.linkedin}}" target="_blank">{{fila.linkedin}}</a></td>
+        <td><a href="{{fila.portfolio}}" target="_blanl">{{fila.portfolio}}</a></td>
       </tr>
     </tbody>
   </table>

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Empleo } from 'src/app/Core/Modules/empleo';
+import { UsuariosService } from 'src/app/Core/services/usuarios.service';
+import { Postulante } from 'src/app/Core/Modules/postulante';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-tabla',
@@ -9,51 +11,53 @@ import { Empleo } from 'src/app/Core/Modules/empleo';
 export class TablaComponent implements OnInit {
 
   columnas:Array<string>;
-  filas:Array<Empleo>;
+  filas:Array<Postulante>;
+  query:string;
 
-  constructor() { }
+  constructor(private usuariosService:UsuariosService, private spinner: NgxSpinnerService) { }
 
   ngOnInit() {
-    
+    this.spinner.show();
     this.inicializarTabla(); 
   }
 
   inicializarTabla(){
-    this.columnas = new Array<string>();
-    this.filas = new Array<Empleo>();
 
-    this.columnas.push("Empresa");
+    let usuarios:Array<any>;
+
+    this.columnas = new Array<string>();
+    this.filas = new Array<Postulante>();
+    let fila:Postulante;
+
+    this.columnas.push("Nombre y Apellido");
     this.columnas.push("País");
-    this.columnas.push("Lugar");
+    this.columnas.push("Povincia");
     this.columnas.push("Puesto");
     this.columnas.push("Contacto");
-    this.columnas.push("Reclutador");
-
-    let empleo:Empleo = new Empleo();
-    
-    empleo.empresa = "Sofrecom";
-    empleo.pais = "Argentina";
-    empleo.lugar = "CABA";
-    empleo.puesto = "Desarrollador .NET";
-    empleo.contacto = "reclutador@gmail.com";
-    empleo.reclutador = "Martín González";
-
-    this.filas.push(empleo);
-
-    empleo = new Empleo();
-
-    empleo.empresa = "Deloitte";
-    empleo.pais = "Argentina"
-    empleo.lugar = "CABA";
-    empleo.puesto = "Desarrollador ABAP";
-    empleo.contacto = "reclutador@gmail.com";
-    empleo.reclutador = "Martín González";
+    this.columnas.push("Linkedin")
+    this.columnas.push("Portfolio");
 
 
-    this.filas.push(empleo);
+    this.usuariosService.getUsers().subscribe((users)=>{
+      usuarios = users; 
+      
+      usuarios.forEach(usuario=>{
+        fila = new Postulante();
+        
+        fila.nombreYApellido = usuario.nombre + ' ' + usuario.apellido; 
+        fila.pais = usuario.pais;
+        fila.provincia = usuario.provincia;
+        fila.puesto = usuario.puesto;
+        fila.contacto = usuario.email;
+        fila.linkedin = usuario.linkedin?usuario.linkedin:null;
+        fila.portfolio = usuario.portfolio?usuario.portfolio:null;
+  
+        this.filas.push(fila);
 
+        this.spinner.hide();
+      });
 
-
+    });
 
   }
 

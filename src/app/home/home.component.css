@@ -1,7 +1,7 @@
 
 #postulantes{
-    background-image: Url("../assets/imagenes/postulantes.jpg");
-    background-size: 100vw 100vh;
+   /* background-image: Url("../assets/imagenes/postulantes.jpg");*/
+    background-size: 100%;/*100vw 100vh;*/
     height: 100%;
     width: 100%;
     margin-right: 0;

@@ -12,4 +12,8 @@ export class PostulantesComponent implements OnInit {
   ngOnInit() {
   }
 
+  onSubmit(){
+    
+  }
+
 }

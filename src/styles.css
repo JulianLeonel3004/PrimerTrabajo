@@ -4,11 +4,12 @@ html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; 
 
    overflow-x: hidden;
+   background-color: #2e3a4d;
 }
 
 .formulario{
     text-align: center;
-    margin-top: 15%;
+    /*margin-top: 50px;*/
     margin-left: 10%;
     margin-right: 10%;
     background-color: whitesmoke;
