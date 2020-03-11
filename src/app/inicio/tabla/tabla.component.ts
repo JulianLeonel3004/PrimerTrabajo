@@ -31,7 +31,7 @@ export class TablaComponent implements OnInit {
 
     this.columnas.push("Nombre y Apellido");
     this.columnas.push("País");
-    this.columnas.push("Povincia");
+    this.columnas.push("Provincia");
     this.columnas.push("Puesto");
     this.columnas.push("Contacto");
     this.columnas.push("Linkedin")
