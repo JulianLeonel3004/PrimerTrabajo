@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, EventEmitter } from '@angular/core';
 import { AngularFireDatabase } from '@angular/fire/database';
 import 'firebase/database';
 
@@ -6,6 +6,9 @@ import 'firebase/database';
   providedIn: 'root'
 })
 export class UsuariosService {
+
+  public inicioSesion = new EventEmitter<Boolean>();
+  conectado:Boolean = false;
 
   constructor(private angularFireDataBase: AngularFireDatabase) { }
 

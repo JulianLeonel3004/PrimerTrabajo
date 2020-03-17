@@ -24,6 +24,7 @@ import { AngularFireDatabaseModule  } from '@angular/fire/database';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { searchPipe } from './Core/Pipes/search';
 import { NgxSpinnerModule } from "ngx-spinner";
+import { OfertasComponent } from './ofertas/ofertas.component';
 
 @NgModule({
   declarations: [ 
@@ -36,7 +37,8 @@ import { NgxSpinnerModule } from "ngx-spinner";
     TablaComponent,
     PostulantesComponent,
     ReclutadoresComponent,
-    searchPipe
+    searchPipe,
+    OfertasComponent
     
   ],
   imports: [

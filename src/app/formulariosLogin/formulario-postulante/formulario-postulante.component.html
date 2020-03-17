@@ -1,4 +1,4 @@
-<!--<ng-container *ngIf="!verRegistro">
+<ng-container *ngIf="opcionSesion">
     <form [formGroup]="inicioSesion" (ngSubmit)="onSubmitSesion()" class="formulario">
         
         <h3>Inicia Sesión</h3>
@@ -35,14 +35,14 @@
             <button type="submit" class="btn btn-success" [disabled]="inicioSesion.invalid"(click)="login()">Iniciar Sesión</button>
         </div>
         <br>
-        <p class="cambioDeFormulario" (click)="mostrarRegistro(true)">Registrarse</p> 
+        <p class="cambioDeFormulario" (click)="mostrarSesion(false)">Registrarse</p> 
         
     </form>
 </ng-container>
 
 
-<ng-container *ngIf="verRegistro">
-    <form [formGroup]="registro" (ngSubmit)="onSubmitRegistro()" class="formulario">
+<ng-container *ngIf="!opcionSesion">
+   <!-- <form [formGroup]="registro" (ngSubmit)="onSubmitRegistro()" class="formulario">
         <h3>Registrate</h3>
         
         <div class="row">
@@ -207,6 +207,6 @@
         
         <br>
      
-        <p class="cambioDeFormulario" (click)="mostrarRegistro(false)">Iniciar Sesión</p> 
+        <p class="cambioDeFormulario" (click)="mostrarSesion(true)">Iniciar Sesión</p> 
 
     </form>

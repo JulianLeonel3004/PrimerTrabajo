@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
+import { Observable } from 'rxjs';
 
 
 @Injectable({
@@ -17,11 +18,23 @@ export class AuthenticationService {
     return this.angularFireAuth.createUserWithEmailAndPassword(email, password);
   }
 
-  getStatus(){
+  getStatus():Observable<any>{
     return this.angularFireAuth.authState;
   }
 
   logout(){
     return this.angularFireAuth.signOut();
   }
+
+  usuario(){
+      var user = this.angularFireAuth.onAuthStateChanged(function(user) {
+        if (user) {
+          console.log(user);
+          
+        } else {
+          console.log("Falló");
+        }
+      });
+
+    }
 }

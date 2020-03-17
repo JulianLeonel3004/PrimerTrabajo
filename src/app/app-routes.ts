@@ -5,9 +5,11 @@ import { PerfilesComponent } from './perfiles/perfiles.component';
 import { PostulantesComponent } from './perfiles/postulantes/postulantes.component';
 import { ReclutadoresComponent } from './perfiles/reclutadores/reclutadores.component';
 import { AuthenticationGuard } from './Core/services/authentication.guard';
+import { OfertasComponent } from './ofertas/ofertas.component';
 
 const appRoutes: Routes = [
-  { path: '', component: InicioComponent },
+  { path: '', component: InicioComponent},
+  { path: 'ofertas', component: OfertasComponent, canActivate:[AuthenticationGuard]},
   { path: 'sesion', component: HomeComponent},
   { path: 'perfil', component: PerfilesComponent ,
 

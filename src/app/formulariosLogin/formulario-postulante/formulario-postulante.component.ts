@@ -12,7 +12,7 @@ export class FormularioPostulanteComponent implements OnInit {
  
   inicioSesion:FormGroup;
   registro:FormGroup;
-  verRegistro:boolean;
+  opcionSesion:boolean;
   perfil:string;
 
   mensajePasswordInvalido:string = null;
@@ -22,8 +22,13 @@ export class FormularioPostulanteComponent implements OnInit {
     private userService:UsuariosService) { }
 
   ngOnInit() {
+    this.opcionSesion = true;
     this.cargarTiposDePerfiles();
-    this.verRegistro = false;
+
+    this.userService.inicioSesion.subscribe((value)=>{
+      this.opcionSesion = value;
+    });
+
     this.cargarFormularios();
     
   }
@@ -116,8 +121,8 @@ export class FormularioPostulanteComponent implements OnInit {
       
   }
 
-  mostrarRegistro(value:boolean){
-    this.verRegistro = value;
+  mostrarSesion(value:boolean){
+    this.opcionSesion = value;
   }
 
 
@@ -128,9 +133,8 @@ export class FormularioPostulanteComponent implements OnInit {
 
   
   onSubmitSesion(){
-
-    console.log(this.inicioSesion);
-    
+    this.login();
+    //console.log(this.inicioSesion);
   }
 
   onSubmitRegistro(){
