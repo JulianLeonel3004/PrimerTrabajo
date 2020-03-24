@@ -1,16 +1,45 @@
-<!--<form [formGroup]="perfilPostulante" (ngSubmit)="onSubmit()">
+<div class="miContainer">
+    <div class="row">
+        <div class="col-lg-4">
+            Acerca de mi:
+        </div>
+        <div class="col-lg-5">
+            <textarea [(ngModel)]="textoAcercaDeMi"></textarea>
+        </div>
+    </div>
+
+<br>
+<button class="btn btn-success" (click)="enviarAcercaDeMi()">Cargar texto a perfil</button>
+
+</div>
+
+<form [formGroup]="perfilPostulante" (ngSubmit)="onSubmit()">
 
   <div class="miContainer">
       
     <h2>Curriculum Vitae</h2>
     <br>
+
+            <div class="row">
+                <div class="col-lg-4">
+                    Nombre y Apellido
+                </div>
+                <div class="col-lg-5">
+                    <input type="text" class="form-control input" formControlName="nombreYApellido">
+                
+                </div>
+
+            </div>
+
+            <br>
+
             <div class="row">
                 <div class="col-lg-4">
                     Fecha de Nacimiento
                 </div>
                 <div class="col-lg-5">
-                    <input type="date" class="form-control input" formControlName="fechaDeNacimieno" name="fechaDeNacimieno">
-                    <!--<div class="text-danger small" >*El campo email es obligatorio</div>--
+                    <input type="date" class="form-control input" formControlName="fechaDeNacimiento" name="fechaDeNacimieno">
+                   
                 </div>
     
             </div>
@@ -23,7 +52,7 @@
                 </div>
                 <div class="col-lg-5">
                     <input type="text" class="form-control input" formControlName="nacionalidad" name="nacionalidad" maxlength="50"> <!--Se debe implementar una base de datos de paises-->
-                    <!--<div class="text-danger small" >*El campo email es obligatorio</div>--
+                    
                 </div>
     
             </div>
@@ -36,7 +65,7 @@
                 </div>
                 <div class="col-lg-5">
                     <input type="text" class="form-control input" formControlName="provincia" name="provincia" maxlength="50"> <!--Se debe implementar una base de datos de paises-->
-                    <!--<div class="text-danger small" >*El campo email es obligatorio</div>--
+                    
                 </div>
     
             </div>
@@ -48,8 +77,8 @@
                     Email
                 </div>
                 <div class="col-lg-5">
-                    <input type="text" class="form-control input" formControlName="email" name="email" maxlength="50">
-                    <!--<div class="text-danger small" >*El campo email es obligatorio</div>--
+                    <input type="text" class="form-control input" formControlName="contacto" maxlength="50">
+                    
                 </div>
     
             </div>
@@ -62,7 +91,7 @@
                 </div>
                 <div class="col-lg-5">
                     <input type="url" class="form-control input" formControlName="linkedin" name="linkedin" maxlength="50">
-                    <!--<div class="text-danger small" >*El campo email es obligatorio</div>--
+                   
                 </div>
     
             </div>
@@ -74,8 +103,8 @@
                     Portfolio
                 </div>
                 <div class="col-lg-5">
-                    <input type="url" class="form-control input" formControlName="ortfolio" name="portfolio" maxlength="50">
-                    <!--<div class="text-danger small" >*El campo email es obligatorio</div>--
+                    <input type="url" class="form-control input" formControlName="portfolio" name="portfolio" maxlength="50">
+                   
                 </div>
     
             </div>
@@ -87,8 +116,8 @@
                     Formación Academica
                 </div>
                 <div class="col-lg-5">
-                    <input type="text" class="form-control input" formControlName="formacion" name="formacion" maxlength="50"> <!--Implementar radio buttons y base de datos de universidades-->
-                    <!--<div class="text-danger small" >*El campo email es obligatorio</div>--
+                    <input type="text" class="form-control input" formControlName="formacion" name="formacion" maxlength="50"> 
+                   
                 </div>
     
             </div>
@@ -100,8 +129,8 @@
                     Lenguajes de Programación
                 </div>
                 <div class="col-lg-5">
-                    <input type="text" class="form-control input" formControlName="lenguajes" name="lenguajes" maxlength="50"> <!--que sean tags, base de datos de lenguajes-->
-                    <!--<div class="text-danger small" >*El campo email es obligatorio</div>--
+                    <input type="text" class="form-control input" formControlName="lenguajes" name="lenguajes" maxlength="50"> 
+                   
                 </div>
     
             </div>
@@ -113,8 +142,8 @@
                     Bases de Datos
                 </div>
                 <div class="col-lg-5">
-                    <input type="text" class="form-control input" formControlName="baseDeDatos" name="baseDeDatos" maxlength="50"><!--idem lenguajes de programación-->
-                    <!--<div class="text-danger small" >*El campo email es obligatorio</div>--
+                    <input type="text" class="form-control input" formControlName="baseDeDatos" name="baseDeDatos" maxlength="50">
+                    
                 </div>
     
             </div>
@@ -126,8 +155,8 @@
                     Idiomas
                 </div>
                 <div class="col-lg-5">
-                    <input type="text" class="form-control input" formControlName="idiomas" name="idiomas" maxlength="50"> <!--Basde de datos de idiomas-->
-                    <!--<div class="text-danger small" >*El campo email es obligatorio</div>--
+                    <input type="text" class="form-control input" formControlName="idiomas" name="idiomas" maxlength="50"> 
+                    
                 </div>
     
             </div>
@@ -144,4 +173,4 @@
 
         
 
-</form>-->
+</form>

@@ -29,7 +29,7 @@
     
     <tbody>
       <tr *ngFor="let fila of this.filas | search:query">
-        <td>{{fila.nombreYApellido}}</td>
+        <td>{{fila.nombre}} {{fila.apellido}}</td>
         <td>{{fila.pais}}</td>
         <td>{{fila.provincia}}</td>
         <td>{{fila.puesto}}</td>

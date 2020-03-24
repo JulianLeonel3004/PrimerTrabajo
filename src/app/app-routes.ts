@@ -14,8 +14,7 @@ const appRoutes: Routes = [
   { path: 'perfil', component: PerfilesComponent ,
 
     children:[
-      { path: 'postulante', component: PostulantesComponent },
-      { path: 'reclutador', component: ReclutadoresComponent }
+      { path: 'postulante', component: PostulantesComponent, canActivate:[AuthenticationGuard] },
     ]
     
   }

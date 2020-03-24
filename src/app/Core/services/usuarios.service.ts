@@ -1,6 +1,7 @@
 import { Injectable, EventEmitter } from '@angular/core';
 import { AngularFireDatabase } from '@angular/fire/database';
 import 'firebase/database';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -16,7 +17,7 @@ export class UsuariosService {
     return this.angularFireDataBase.list('/users').valueChanges();
   }
 
-  getUserByid(uid){
+  getUserByid(uid):Observable<any>{
     return this.angularFireDataBase.object('/users/'+ uid).valueChanges();
   }
   

@@ -7,9 +7,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PerfilesComponent implements OnInit {
 
+  acercaDeMi:string;
+
   constructor() { }
 
   ngOnInit() {
   }
+
+
+  cargarAcercaDeMi(event:string){    
+    this.acercaDeMi = event;
+  }
+
+
 
 }

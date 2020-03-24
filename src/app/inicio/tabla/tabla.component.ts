@@ -44,7 +44,8 @@ export class TablaComponent implements OnInit {
       usuarios.forEach(usuario=>{
         fila = new Postulante();
         
-        fila.nombreYApellido = usuario.nombre + ' ' + usuario.apellido; 
+        fila.nombre = usuario.nombre;
+        fila.apellido = usuario.apellido;
         fila.pais = usuario.pais;
         fila.provincia = usuario.provincia;
         fila.puesto = usuario.puesto;

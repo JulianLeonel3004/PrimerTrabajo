@@ -4,7 +4,8 @@
         <ul>
             <li *ngIf="!logeado" (click)="sesion(true)"><span>Registrarse / Iniciar Sesión</span></li>
             <li *ngIf="logeado" (click)="cerrarSesion()">Salir</li>
-            <li *ngIf="logeado" [routerLink]="['/ofertas']" routerLinkActive="router-link-active">Ofertas Laborales</li> 
+            <li *ngIf="logeado" [routerLink]="['/ofertas']" routerLinkActive="router-link-active">Ofertas Laborales</li>
+            <li *ngIf="logeado" [routerLink]="['/perfil/postulante']" routerLinkActive="router-link-active">Mi Perfil</li>  
         </ul>
     </div>
 </nav>
