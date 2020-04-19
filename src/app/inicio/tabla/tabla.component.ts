@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { UsuariosService } from 'src/app/Core/services/usuarios.service';
 import { Postulante } from 'src/app/Core/Modules/postulante';
 import { NgxSpinnerService } from 'ngx-spinner';
+import { FormularioPostulanteComponent } from 'src/app/formulariosLogin/formulario-postulante/formulario-postulante.component';
 
 @Component({
   selector: 'app-tabla',
@@ -13,12 +14,18 @@ export class TablaComponent implements OnInit {
   columnas:Array<string>;
   filas:Array<Postulante>;
   query:string;
+  page:number;
+  pageSize:number;
+  cantidadRegistros:number;
 
   constructor(private usuariosService:UsuariosService, private spinner: NgxSpinnerService) { }
 
   ngOnInit() {
     this.spinner.show();
     this.inicializarTabla(); 
+
+    this.page = 1;
+    this.pageSize = 30;
   }
 
   inicializarTabla(){
@@ -52,11 +59,25 @@ export class TablaComponent implements OnInit {
         fila.contacto = usuario.email;
         fila.linkedin = usuario.linkedin?usuario.linkedin:null;
         fila.portfolio = usuario.portfolio?usuario.portfolio:null;
+
+        if(fila.linkedin != null && ( fila.linkedin.substring(0,8).toLowerCase() != "https://" && fila.linkedin.substring(0,7).toLowerCase() != "http://") ){
+          console.log(fila.linkedin);
+          
+          fila.linkedin = "https://" + fila.linkedin;
+          console.log(fila.linkedin);
+        }
+        if(fila.portfolio != null && ( fila.linkedin.substring(0,8).toLowerCase() != "https://" && fila.linkedin.substring(0,7).toLowerCase() != "http://")){
+          console.log(fila.portfolio);
+          fila.portfolio = "https://" + fila.portfolio;
+        }
   
         this.filas.push(fila);
 
         this.spinner.hide();
       });
+
+
+      this.cantidadRegistros = this.filas.length;
 
     });
 

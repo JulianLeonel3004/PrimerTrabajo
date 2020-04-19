@@ -12,7 +12,7 @@
 }
 
 .table{
-  min-width: 694px;
+  /*min-width: 694px;*/
   padding: inherit;
   color: rgba(98,100,101,1);
   font-size: .8em;  

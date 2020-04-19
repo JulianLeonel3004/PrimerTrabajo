@@ -11,7 +11,6 @@ import { UsuariosService } from 'src/app/Core/services/usuarios.service';
 export class PostulantesComponent implements OnInit {
 
   perfilPostulante:FormGroup;
-  textoAcercaDeMi:string;
   idUsuario:string;
 
   @Output() acercaDeMi = new EventEmitter<string>()
@@ -27,7 +26,8 @@ export class PostulantesComponent implements OnInit {
   
   crearFormulario(){
       this.perfilPostulante = this.formBuilder.group({
-        nombreYApellido: '',
+        nombre: '',
+        apellido:'',
         fechaDeNacimiento:'',
         nacionalidad:'',
         provincia:'',
@@ -48,8 +48,9 @@ export class PostulantesComponent implements OnInit {
     this.authenticationService.getStatus().subscribe((status)=>{
       this.idUsuario = status.uid;
       this.usuarioService.getUserByid(status.uid).subscribe(usuario=>{
-        
-        this.perfilPostulante.controls.nombreYApellido.setValue(usuario.nombre + ' ' + usuario.apellido);
+     
+        this.perfilPostulante.controls.nombre.setValue(usuario.nombre);
+        this.perfilPostulante.controls.apellido.setValue(usuario.apellido);
         this.perfilPostulante.controls.nacionalidad.setValue(usuario.pais);
         this.perfilPostulante.controls.provincia.setValue(usuario.provincia);
         this.perfilPostulante.controls.puesto.setValue(usuario.puesto);
@@ -62,20 +63,32 @@ export class PostulantesComponent implements OnInit {
         this.perfilPostulante.controls.baseDeDatos.setValue(usuario.baseDeDatos);
         this.perfilPostulante.controls.idiomas.setValue(usuario.idiomas);
 
-        this.textoAcercaDeMi = usuario.acercaDeMi;
-        this.enviarAcercaDeMi();
       });
     });
     
   }
 
-
-  enviarAcercaDeMi(){
-    this.acercaDeMi.emit(this.textoAcercaDeMi);
-  }
-
   onSubmit(){
+
+    this.usuarioService.getUserByid(this.idUsuario).subscribe(usuario=>{
+      usuario.nombre = this.perfilPostulante.controls.nombre.value;
+      usuario.apellido = this.perfilPostulante.controls.apellido.value;
+      usuario.pais = this.perfilPostulante.controls.nacionalidad.value;
+      usuario.provincia = this.perfilPostulante.controls.provincia.value;
+      usuario.puesto = this.perfilPostulante.controls.puesto.value;
+      usuario.contacto = this.perfilPostulante.controls.contacto.value;
+      usuario.linkedin = this.perfilPostulante.controls.linkedin.value;
+      usuario.portfolio = this.perfilPostulante.controls.portfolio.value;
+      usuario.formacion = this.perfilPostulante.controls.formacion.value;
+
+      this.usuarioService.editUser(usuario);
+
+    });
+
+
     
+    
+
   }
 
 }
