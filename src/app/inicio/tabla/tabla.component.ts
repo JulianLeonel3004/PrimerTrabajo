@@ -60,14 +60,11 @@ export class TablaComponent implements OnInit {
         fila.linkedin = usuario.linkedin?usuario.linkedin:null;
         fila.portfolio = usuario.portfolio?usuario.portfolio:null;
 
-        if(fila.linkedin != null && ( fila.linkedin.substring(0,8).toLowerCase() != "https://" && fila.linkedin.substring(0,7).toLowerCase() != "http://") ){
-          console.log(fila.linkedin);
-          
+        if(fila.linkedin != null && ( fila.linkedin && fila.linkedin.substring(0,8).toLowerCase() != "https://" && fila.linkedin.substring(0,7).toLowerCase() != "http://") ){  
           fila.linkedin = "https://" + fila.linkedin;
-          console.log(fila.linkedin);
+        
         }
-        if(fila.portfolio != null && ( fila.linkedin.substring(0,8).toLowerCase() != "https://" && fila.linkedin.substring(0,7).toLowerCase() != "http://")){
-          console.log(fila.portfolio);
+        if(fila.portfolio != null && ( fila.linkedin && fila.linkedin.substring(0,8).toLowerCase() != "https://" && fila.linkedin.substring(0,7).toLowerCase() != "http://")){
           fila.portfolio = "https://" + fila.portfolio;
         }
   

@@ -23,7 +23,7 @@
       </thead>
       
       <tbody>
-        <tr *ngFor="let fila of this.filas | slice: (page-1) * pageSize : (page-1) * pageSize + pageSize"> <!--search:query">-->
+        <tr *ngFor="let fila of this.filas | slice: (page-1) * pageSize : (page-1) * pageSize + pageSize | search:query"> 
           <td>{{fila.nombre}} {{fila.apellido}}</td>
           <td>{{fila.pais}}</td>
           <td>{{fila.provincia}}</td>
