@@ -1,8 +1,8 @@
 <nav>
-    <h2 [routerLink]="['/']" routerLinkActive="router-link-active" > Mi primer trabajo </h2>
+    <h2 [routerLink]="['/']" routerLinkActive="router-link-active" ><b style="color: #FFF">MPT</b><b style="color: #47B4FF;">IT</b></h2>
     <div class="menu">
         <ul>
-            <li *ngIf="!logeado" (click)="sesion(true)"><span>Registrarse / Iniciar Sesión</span></li>
+            <li *ngIf="!logeado" (click)="sesion(true)"><span style="color: #FFF">Registrarse / Iniciar Sesión</span></li>
             <li *ngIf="logeado" (click)="cerrarSesion()">Salir</li>
             <li *ngIf="logeado" [routerLink]="['/ofertas']" routerLinkActive="router-link-active">Ofertas Laborales</li>
             <li *ngIf="logeado" [routerLink]="['/perfil/postulante']" routerLinkActive="router-link-active">Mi Perfil</li>  

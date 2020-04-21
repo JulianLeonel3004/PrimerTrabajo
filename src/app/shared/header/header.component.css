@@ -1,12 +1,13 @@
 
 nav{
     display: flex;
-    background-color: #1E8FFF;
-    padding: 10px;
+    height: 70px;
+    background: #153243 0% 0% no-repeat padding-box;
+
     justify-content: space-between;
     color: #535480;  
     align-items: center;
-    margin-bottom: 30px;
+    /*margin-bottom: 30px;*/
 }
 
 nav ul{
@@ -27,3 +28,16 @@ nav h2:hover{
     cursor: pointer;
     color:#FDFEFE;
 }
+
+nav h2{
+    margin-top: 18px;
+    margin-bottom: 18px;
+    margin-left: 200px;
+    width: 71px;
+    height: 34px;
+    text-align: left;
+    font: Heavy Futura PT;
+    letter-spacing: 0px;
+    opacity: 1;
+}
+

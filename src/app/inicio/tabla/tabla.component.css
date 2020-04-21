@@ -1,8 +1,4 @@
 
-.containerTable{
-  max-width: 641px;
-  background-color: red;
-}
 
 
 .display{
@@ -17,12 +13,12 @@
   color: rgba(98,100,101,1);
   font-size: .8em;  
   text-align: center;
-  border:1px solid rgba(255,255,255,1);
-  border-top-right-radius: 10px;
+ /* border:1px solid rgba(255,255,255,1);
+  border-top-right-radius: 10px;*/
   background-color: whitesmoke;
   width: 94%;
   margin: 0 3%;
-
+  border-color: black;
   
 }
 td{
@@ -43,4 +39,7 @@ th {
 
 .fa, .fas {
   padding-top:10px;
+}
+table, th, td {
+  border-top: 4px solid #EEF0EB;
 }

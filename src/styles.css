@@ -4,7 +4,8 @@ html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; 
 
    overflow-x: hidden;
-   background-color: #2e3a4d;
+   background-color: #EEF0EB;
+   
 }
 
 .formulario{
@@ -12,7 +13,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif;
     /*margin-top: 50px;*/
     margin-left: 10%;
     margin-right: 10%;
-    background-color: whitesmoke;
+    background-color: #EEF0EB;
     border-radius: 10px;
     padding: 30px;
     text-align: center;
