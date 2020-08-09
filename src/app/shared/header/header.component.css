@@ -2,6 +2,7 @@
 nav{
     display: flex;
     height: 70px;
+    width: 100%;
     background: #153243 0% 0% no-repeat padding-box;
 
     justify-content: space-between;
@@ -16,7 +17,7 @@ nav ul{
 }
 
 nav ul li{
-    margin-left: 20px;
+    margin-left: 5%;
 }
 
 nav ul li:hover{
@@ -32,7 +33,7 @@ nav h2:hover{
 nav h2{
     margin-top: 18px;
     margin-bottom: 18px;
-    margin-left: 200px;
+    margin-left: 10%; 
     width: 71px;
     height: 34px;
     text-align: left;
@@ -40,4 +41,6 @@ nav h2{
     letter-spacing: 0px;
     opacity: 1;
 }
+
+
 
