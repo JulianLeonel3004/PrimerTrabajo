@@ -1,31 +1,11 @@
 # PrimerTrabajo
-<<<<<<< HEAD
+Proyecto Open Source para que jovenes encuentren su primer empleo en IT.
+La idea principal del nacimiento de la web miprimertrabajoit.com es que nuevos aspirantes a puestos IT, sin ninguna experiencia puedan ser visibilizados
+y no queden perdidos en la oleada de profesionales experimentados de distintas redes.
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.17.
+--Nota del Creador: JulianLeonel3004
+Si se tarda en aceptar o rechazar algún PR es porque todavía no tuve la posibilidad de revisarlo. 
+Gracias por colaborar.
 
-## Development server
-
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
-=======
-Red de empleo
->>>>>>> 4534a2dd16e42886326c064161496157dfe98f21
+IMPORTANTE:
+Cualquier Pull Request deberá hacerce hacia el branch desarrollo, cualquier PR a master será rechazado automáticamente.
