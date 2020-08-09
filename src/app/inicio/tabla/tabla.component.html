@@ -1,0 +1,47 @@
+<br>
+
+<div class="row">
+  <div class="col-lg-1"><!--Espacio--></div>
+  <div class="col-lg-3">
+      <input type="text" class="form-control" placeholder="Buscar" [(ngModel)]="query">
+  </div>
+  <span class="fas fa-search"></span>
+</div>
+
+<br>
+
+<div class="row">
+  <div class="col-lg-12">
+    <div class="display">
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col" *ngFor="let columna of this.columnas">{{columna}}</th>
+        </tr>
+      </thead>
+      
+      <tbody>
+        <tr *ngFor="let fila of this.filas | slice: (page-1) * pageSize : (page-1) * pageSize + pageSize | search:query"> 
+          <td>{{fila.nombre}} {{fila.apellido}}</td>
+          <td>{{fila.pais}}</td>
+          <td>{{fila.provincia}}</td>
+          <td>{{fila.puesto}}</td>
+          <td>{{fila.contacto}}</td>
+          <td><a href="{{fila.linkedin}}" target="_blank">{{fila.linkedin}}</a></td>
+          <td><a href="{{fila.portfolio}}" target="_blanl">{{fila.portfolio}}</a></td>
+        </tr>
+      </tbody>
+      
+    </table>
+    </div>
+  </div>
+</div>
+
+<br>
+
+<div class="row">
+  <div class="col-lg-2"><!-- Espacio--></div>
+  <div class="col-lg-10">
+    <ngb-pagination [(page)]="page" [pageSize]="pageSize" [collectionSize]="cantidadRegistros"></ngb-pagination>
+  </div>
+</div>

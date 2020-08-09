@@ -1,0 +1,212 @@
+<ng-container *ngIf="opcionSesion">
+    <form [formGroup]="inicioSesion" (ngSubmit)="onSubmitSesion()" class="formulario">
+        
+        <h3>Inicia Sesión</h3>
+
+        <div class="row">
+            <div class="col-lg-4">
+                Email
+            </div>
+            <div class="col-lg-5">
+                <input type="text" class="form-control input" formControlName="email" name="email" maxlength="50">
+                <div class="text-danger small" *ngIf="inicioSesion.get('email').touched && inicioSesion.get('email').hasError('pattern')">*El campo email es obligatorio</div>
+            </div>
+
+        </div>
+
+        <br>
+        
+        <div class="row">
+            <div class="col-lg-4">
+            Contraseña
+            </div>
+
+            <div class="col-lg-5">
+                <input type="password" class="form-control input" formControlName="password" name="password" maxlength="50">
+            <div class="text-danger small" *ngIf="inicioSesion.get('password').touched && inicioSesion.get('password').hasError('required')">*Debe ingresar su contraseña</div>
+            </div>
+        </div>
+
+        <br>
+
+        <div class="row">
+            <div class="col-lg-5">
+            </div>
+            <button type="submit" class="btn btn-success" [disabled]="inicioSesion.invalid"(click)="login()">Iniciar Sesión</button>
+        </div>
+        <br>
+        <p class="cambioDeFormulario" (click)="mostrarSesion(false)">Registrarse</p> 
+        
+    </form>
+</ng-container>
+
+
+<ng-container *ngIf="!opcionSesion">
+   <!-- <form [formGroup]="registro" (ngSubmit)="onSubmitRegistro()" class="formulario">
+        <h3>Registrate</h3>
+        
+        <div class="row">
+            <div class="col-lg-4">
+                ¿Es un postulante o un reclutador?
+            </div>
+            <div class="btn-group btn-group-toggle" ngbRadioGroup name="radioBasic">
+                
+                <label ngbButtonLabel class="btn-primary">
+                  <input ngbButton type="radio" [value]="Postulante" (click)="cargarPerfil('Postulante')"> Postulante
+                </label>
+
+                <label ngbButtonLabel class="btn-primary">
+                    <input ngbButton type="radio" value="Reclutador" (click)="cargarPerfil('Reclutador')"> Reclutador
+                </label>
+
+            </div>
+            <span class="text-danger small" *ngIf="registro.get('password').touched && registro.get('perfil').hasError('required')">
+                *Es necesario elegir si es un Postulante o un Reclutador
+            </span>
+       </div>   -->
+
+        
+    <form [formGroup]="registro" (ngSubmit)="onSubmitRegistro()" class="formulario">
+            <h3>Registrate</h3>
+
+            <br>
+        <div class="row">
+            <div class="col-lg-4">
+                Nombre 
+            </div>
+            <div class="col-lg-5">
+                <input type="text" class="form-control input" formControlName="nombre" name="nombre" maxlength="50">
+                <div class="text-danger small" *ngIf="registro.get('nombre').touched && registro.get('nombre').hasError('pattern')">*El campo nombre es obligatorio</div>    
+            </div>
+        </div>
+        
+        <br>
+
+        <div class="row">
+            <div class="col-lg-4">
+                Apellido 
+            </div>
+            <div class="col-lg-5">
+                <input type="text" class="form-control input" formControlName="apellido" name="apellido" maxlength="50">
+                <div class="text-danger small" *ngIf="registro.get('apellido').touched && registro.get('apellido').hasError('pattern')">*El campo apellido es obligatorio</div>    
+            </div>
+        </div>
+
+        <br>
+        
+        <div class="row">
+            <div class="col-lg-4">
+                País 
+            </div>
+            <div class="col-lg-5">
+                <input type="text" class="form-control input" formControlName="pais" name="pais" maxlength="50">
+                <div class="text-danger small" *ngIf="registro.get('pais').touched && registro.get('pais').hasError('pattern')">*El campo pais es obligatorio</div>    
+            </div>
+        </div>
+
+        <br>
+        
+        <div class="row">
+            <div class="col-lg-4">
+                Provincia
+            </div>
+            <div class="col-lg-5">
+                <input type="text" class="form-control input" formControlName="provincia" name="provincia" maxlength="50">
+                <div class="text-danger small" *ngIf="registro.get('provincia').touched && registro.get('provincia').hasError('pattern')">*El campo provincia es obligatorio</div>    
+            </div>
+        </div>
+
+        <br>
+
+        <div class="row">
+            <div class="col-lg-4">
+                Puesto al que aspira
+            </div>
+            <div class="col-lg-5">
+                <input type="text" class="form-control input" formControlName="puesto" name="puesto" maxlength="50">
+                <div class="text-danger small" *ngIf="registro.get('puesto').touched && registro.get('puesto').hasError('pattern')">*El campo puesto es obligatorio</div>    
+            </div>
+
+        </div>
+
+        <br>
+
+        <div class="row">
+            <div class="col-lg-4">
+                Email
+            </div>
+            <div class="col-lg-5">
+                <input type="text" class="form-control input" formControlName="email" name="email" maxlength="50">
+                <div class="text-danger small" *ngIf="registro.get('email').touched && registro.get('email').hasError('pattern')">*El campo email es obligatorio</div>
+            </div>
+
+        </div>
+
+        <br>
+
+
+        <div class="row">
+            <div class="col-lg-4">
+                Linkedin (URL)
+            </div>
+            <div class="col-lg-5">
+                <input type="text" class="form-control input" formControlName="linkedin" name="linkedin" maxlength="200">
+                <span class="text-warning small">*El campo linkedin es recomendado</span>
+            </div>
+
+        </div>
+
+        <br>
+
+
+        <div class="row">
+            <div class="col-lg-4">
+                Portfolio (URL)
+            </div>
+            <div class="col-lg-5">
+                <input type="text" class="form-control input" formControlName="portfolio" name="portfolio" maxlength="200">
+                <span class="text-warning small" >*El campo portfolio es recomendado</span>
+            </div>
+
+        </div>
+
+        <br>
+        
+        <div class="row">
+            <div class="col-lg-4">
+            Contraseña
+            </div>
+
+            <div class="col-lg-5">
+                <input type="password" class="form-control input" formControlName="password" name="password" maxlength="50">
+            <div class="text-danger small" *ngIf="registro.get('password').touched && registro.get('password').hasError('required')">*Debe ingresar su contraseña</div>
+            </div>
+        </div>
+
+        <br>
+
+       <div class="row">
+            <div class="col-lg-4">
+            Vuelva a escribir la contraseña
+            </div>
+
+            <div class="col-lg-5">
+                <input type="password" class="form-control input" formControlName="password2" name="password" maxlength="50" (change)="validarPassword()">
+            <span class="text-danger small" *ngIf="registro.get('password2').touched && registro.get('password2').hasError('required')">*Debe ingresar su contraseña</span>
+            <span class="text-danger small">{{this.mensajePasswordInvalido}}</span>
+            </div>
+        </div>
+
+        <br>
+
+        <div class="row">
+            <div class="col-lg-5">
+            </div>
+            <button type="submit" class="btn btn-success" [disabled]="registro.invalid || this.mensajePasswordInvalido">Registrarse</button>
+        </div>
+        
+        <br>
+     
+        <p class="cambioDeFormulario" (click)="mostrarSesion(true)">Iniciar Sesión</p> 
+
+    </form>

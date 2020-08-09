@@ -1,0 +1,32 @@
+.centrado{
+    text-align: center;
+}
+.label{
+    padding-top: 55px;
+    padding-bottom: 55px;
+    background-image: url("src\assets\imagenes\fondoHome.png");
+    background-color: #47B4FF;
+    
+
+
+}
+p{   
+    margin-left: 200px;
+    text-align: left;
+    font-size: 24px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: lighter;
+    color: #FFF;
+    
+}
+
+
+.celeste{
+    color: #47B4FF;
+}
+
+@media (max-width: 700px) {
+    p {
+      margin-left: 5px;
+    }
+}

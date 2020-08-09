@@ -1,0 +1,46 @@
+
+nav{
+    display: flex;
+    height: 70px;
+    width: 100%;
+    background: #153243 0% 0% no-repeat padding-box;
+
+    justify-content: space-between;
+    color: #535480;  
+    align-items: center;
+    /*margin-bottom: 30px;*/
+}
+
+nav ul{
+    display: flex;
+    list-style: none;
+}
+
+nav ul li{
+    margin-left: 5%;
+}
+
+nav ul li:hover{
+    cursor: pointer;
+    color:#FDFEFE;
+}
+
+nav h2:hover{
+    cursor: pointer;
+    color:#FDFEFE;
+}
+
+nav h2{
+    margin-top: 18px;
+    margin-bottom: 18px;
+    margin-left: 10%; 
+    width: 71px;
+    height: 34px;
+    text-align: left;
+    font: Heavy Futura PT;
+    letter-spacing: 0px;
+    opacity: 1;
+}
+
+
+

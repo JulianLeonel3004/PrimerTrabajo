@@ -1,0 +1,20 @@
+/* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; 
+
+   overflow-x: hidden;
+   background-color: #EEF0EB;
+   
+}
+
+.formulario{
+    text-align: center;
+    /*margin-top: 50px;*/
+    margin-left: 10%;
+    margin-right: 10%;
+    background-color: #EEF0EB;
+    border-radius: 10px;
+    padding: 30px;
+    text-align: center;
+}

@@ -1,0 +1,175 @@
+
+<form [formGroup]="perfilPostulante" (ngSubmit)="onSubmit()">
+
+  <div class="miContainer">
+      
+    <h2>Curriculum Vitae</h2>
+    <br>
+
+            <div class="row">
+                <div class="col-lg-4">
+                    Nombre
+                </div>
+                <div class="col-lg-5">
+                    <input type="text" class="form-control input" formControlName="nombre">
+                
+                </div>
+
+            </div>
+
+            <br>
+
+            <div class="row">
+                <div class="col-lg-4">
+                    Apellido
+                </div>
+                <div class="col-lg-5">
+                    <input type="text" class="form-control input" formControlName="apellido">
+                
+                </div>
+
+            </div>
+
+            <br>
+
+            <div class="row">
+                <div class="col-lg-4">
+                    Fecha de Nacimiento
+                </div>
+                <div class="col-lg-5">
+                    <input type="date" class="form-control input" formControlName="fechaDeNacimiento">
+                   
+                </div>
+    
+            </div>
+
+            <br>
+
+            <div class="row">
+                <div class="col-lg-4">
+                    Nacionalidad
+                </div>
+                <div class="col-lg-5">
+                    <input type="text" class="form-control input" formControlName="nacionalidad" name="nacionalidad" maxlength="50"> <!--Se debe implementar una base de datos de paises-->
+                    
+                </div>
+    
+            </div>
+
+            <br>
+
+            <div class="row">
+                <div class="col-lg-4">
+                    Provincia
+                </div>
+                <div class="col-lg-5">
+                    <input type="text" class="form-control input" formControlName="provincia" name="provincia" maxlength="50"> <!--Se debe implementar una base de datos de paises-->
+                    
+                </div>
+    
+            </div>
+
+            <br>
+
+            <div class="row">
+                <div class="col-lg-4">
+                    Email
+                </div>
+                <div class="col-lg-5">
+                    <input type="text" class="form-control input" formControlName="contacto" maxlength="50">
+                    
+                </div>
+    
+            </div>
+
+            <br>
+
+            <div class="row">
+                <div class="col-lg-4">
+                    Linkedin
+                </div>
+                <div class="col-lg-5">
+                    <input type="url" class="form-control input" formControlName="linkedin" name="linkedin" maxlength="50">
+                   
+                </div>
+    
+            </div>
+
+            <br>
+
+            <div class="row">
+                <div class="col-lg-4">
+                    Portfolio
+                </div>
+                <div class="col-lg-5">
+                    <input type="url" class="form-control input" formControlName="portfolio" name="portfolio" maxlength="50">
+                   
+                </div>
+    
+            </div>
+
+            <br>
+
+            <div class="row">
+                <div class="col-lg-4">
+                    Formación Academica
+                </div>
+                <div class="col-lg-5">
+                    <input type="text" class="form-control input" formControlName="formacion" name="formacion" maxlength="50"> 
+                   
+                </div>
+    
+            </div>
+
+            <br>
+
+            <div class="row">
+                <div class="col-lg-4">
+                    Lenguajes de Programación
+                </div>
+                <div class="col-lg-5">
+                    <input type="text" class="form-control input" formControlName="lenguajes" name="lenguajes" maxlength="50"> 
+                   
+                </div>
+    
+            </div>
+
+            <br>
+
+            <div class="row">
+                <div class="col-lg-4">
+                    Bases de Datos
+                </div>
+                <div class="col-lg-5">
+                    <input type="text" class="form-control input" formControlName="baseDeDatos" name="baseDeDatos" maxlength="50">
+                    
+                </div>
+    
+            </div>
+
+            <br>
+
+            <div class="row">
+                <div class="col-lg-4">
+                    Idiomas
+                </div>
+                <div class="col-lg-5">
+                    <input type="text" class="form-control input" formControlName="idiomas" name="idiomas" maxlength="50"> 
+                    
+                </div>
+    
+            </div>
+
+            <br>
+
+            <div class="row">
+                <div class="col-lg-5">
+                </div>
+                <button type="submit" class="btn btn-success">Guardar Cambios</button>
+            </div>
+
+        </div>
+
+        
+
+</form>
