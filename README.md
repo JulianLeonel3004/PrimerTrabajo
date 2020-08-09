@@ -6,3 +6,6 @@ y no queden perdidos en la oleada de profesionales experimentados de distintas r
 --Nota del Creador: JulianLeonel3004
 Si se tarda en aceptar o rechazar algún PR es porque todavía no tuve la posibilidad de revisarlo. 
 Gracias por colaborar.
+
+IMPORTANTE:
+Cualquier Pull Request deberá hacerce hacia el branch desarrollo, cualquier PR a master será rechazado automáticamente.
