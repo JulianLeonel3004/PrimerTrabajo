@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { UsuariosService } from 'src/app/Core/services/usuarios.service';
 import { Postulante } from 'src/app/Core/Modules/postulante';
 import { NgxSpinnerService } from 'ngx-spinner';
-import { FormularioPostulanteComponent } from 'src/app/formulariosLogin/formulario-postulante/formulario-postulante.component';
+// import { FormularioPostulanteComponent } from 'src/app/formulariosLogin/formulario-postulante/formulario-postulante.component';
 
 @Component({
   selector: 'app-tabla',
