@@ -5,6 +5,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { InicioComponent } from './components/inicio/inicio.component';
 import { TablaComponent } from './components/inicio/tabla/tabla.component';
 import { NgxSpinnerModule } from "ngx-spinner";
+import { searchPipe } from '../../Core/Pipes/search';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 const routes: Routes = [
   {
@@ -15,12 +17,15 @@ const routes: Routes = [
 
 
 @NgModule({
-  declarations: [InicioComponent,TablaComponent],
+  declarations: [InicioComponent,TablaComponent,searchPipe],
   imports: [
     CommonModule,
     ReactiveFormsModule,
     FormsModule,
     NgxSpinnerModule,
+    
+    NgbModule,
+    //searchPipe,
     RouterModule.forChild(routes)
   ]
 })

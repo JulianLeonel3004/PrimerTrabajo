@@ -1,29 +1,9 @@
-import { RouterModule, Routes, Router } from '@angular/router';
-// import { HomeComponent } from './home/home.component';
-import { InicioComponent } from './Modules/inicio/components/inicio/inicio.component';
-import { PerfilesComponent } from './perfiles/perfiles.component';
-import { PostulantesComponent } from './perfiles/postulantes/postulantes.component';
-import { ReclutadoresComponent } from './perfiles/reclutadores/reclutadores.component';
-import { AuthenticationGuard } from './Core/services/authentication.guard';
-import { OfertasComponent } from './ofertas/ofertas.component';
+import { RouterModule, Routes } from '@angular/router';
+
 
 const appRoutes: Routes = [
-  // { path: '', component: InicioComponent},
-  // { path: 'ofertas', component: OfertasComponent, canActivate:[AuthenticationGuard]},
-  // { path: 'sesion', component: HomeComponent},
-  // { path: 'perfil', component: PerfilesComponent ,
-
-  //   children:[
-  //     { path: 'postulante', component: PostulantesComponent, canActivate:[AuthenticationGuard] },
-  //   ]
-    
-  // }
-
-  
-  //{path: '', loadChildren: () => import('./Modules/login/login.module').then(m => m.LoginModule)}//canActivate: [AuthGuard]
-  
   {path: '', loadChildren:() => import('./Modules/inicio/inicio.module').then(m => m.InicioModule)},
-  {path: 'login', loadChildren:() => import('./Modules/home/home.module').then(m => m.HomeModule)}
+  {path: 'sesion', loadChildren:() => import('./Modules/home/home.module').then(m => m.HomeModule)}
 
   
 ];

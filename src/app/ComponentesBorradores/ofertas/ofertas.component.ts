@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Oferta } from '../Core/Modules/oferta';
-import { OfertasService } from '../Core/services/ofertas.service';
+import { Oferta } from '../../Core/Modules/oferta';
+import { OfertasService } from '../../Core/services/ofertas.service';
 
 @Component({
   selector: 'app-ofertas',
