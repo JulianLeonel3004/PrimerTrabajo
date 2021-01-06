@@ -21,14 +21,27 @@
       </thead>
       
       <tbody>
-        <tr *ngFor="let fila of this.filas | slice: (page-1) * pageSize : (page-1) * pageSize + pageSize | search:query">
+        <tr *ngFor="let fila of this.filas | search:query | slice: (page-1) * pageSize : (page-1) * pageSize + pageSize">
           <td>{{fila.nombre}} {{fila.apellido}}</td>
           <td>{{fila.pais}}</td>
           <td>{{fila.provincia}}</td>
           <td>{{fila.puesto}}</td>
           <td>{{fila.contacto}}</td>
-          <td><a href="{{fila.linkedin}}" target="_blank">{{fila.linkedin}}</a></td>
-          <td><a href="{{fila.portfolio}}" target="_blanl">{{fila.portfolio}}</a></td>
+          <td>
+            
+            <a href="{{fila.linkedin}}" target="_blank" *ngIf="fila.linkedin">
+            <img src="../../../../../../assets/imagenes/linkedin-logo.png" width="40px" height="40px">
+            </a>
+          </td>
+
+          <td>
+            <a href="{{fila.portfolio}}" target="_blanl" *ngIf="fila.portfolio">
+              <b>Ir al Porfolio de {{fila.nombre}}</b>
+            </a>
+          </td>
+
+
+
         </tr>
       </tbody>
       
