@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, EventEmitter } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { Observable } from 'rxjs';
 
@@ -9,6 +9,7 @@ import { Observable } from 'rxjs';
 export class AuthenticationService {
 
   constructor(private angularFireAuth:AngularFireAuth) { }
+  
 
   loginWithEmail(email:string, password:string){
     return this.angularFireAuth.signInWithEmailAndPassword(email, password);

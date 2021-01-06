@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { AuthenticationService } from 'src/app/Core/services/authentication.service';
 import { UsuariosService } from 'src/app/Core/services/usuarios.service';
 
@@ -19,7 +20,8 @@ export class FormularioPostulanteComponent implements OnInit {
 
   constructor(private formbuilder:FormBuilder, 
     private authenticationService:AuthenticationService,
-    private userService:UsuariosService) { }
+    private userService:UsuariosService,
+    private router: Router) { }
 
   ngOnInit() {
     this.opcionSesion = true;
@@ -33,16 +35,16 @@ export class FormularioPostulanteComponent implements OnInit {
     
   }
 
+
   login(){
-   this.authenticationService.loginWithEmail(this.inicioSesion.controls.email.value,this.inicioSesion.controls.password.value).then((data)=>{
-    alert('logeado correctamte');
-    console.log(data);
-    
-   }).catch((error)=>{
-     alert('ocurrió un error');
-     console.log(error);
-     
-   });
+  this.authenticationService.loginWithEmail(this.inicioSesion.controls.email.value,this.inicioSesion.controls.password.value)
+   .then(()=>{
+     alert("Logeado correctamente");
+     this.router.navigate(['/']);
+   })
+   .catch(msjError=>{
+     alert("Error: " + msjError);
+   })
   }
 
   logout(){
