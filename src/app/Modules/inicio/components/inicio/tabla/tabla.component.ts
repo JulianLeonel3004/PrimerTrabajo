@@ -56,7 +56,7 @@ export class TablaComponent implements OnInit {
         fila.pais = usuario.pais;
         fila.provincia = usuario.provincia;
         fila.puesto = usuario.puesto;
-        fila.contacto = usuario.email;
+        fila.email = usuario.email;
         fila.linkedin = usuario.linkedin?usuario.linkedin:null;
         fila.portfolio = usuario.portfolio?usuario.portfolio:null;
 

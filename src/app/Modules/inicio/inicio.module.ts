@@ -23,9 +23,7 @@ const routes: Routes = [
     ReactiveFormsModule,
     FormsModule,
     NgxSpinnerModule,
-    
     NgbModule,
-    //searchPipe,
     RouterModule.forChild(routes)
   ]
 })

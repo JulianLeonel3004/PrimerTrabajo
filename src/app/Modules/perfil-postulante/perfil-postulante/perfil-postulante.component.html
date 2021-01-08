@@ -1,0 +1,109 @@
+<div class="conatainer-formulario" *ngIf="this.postulante">
+    <div class="row">
+        <div class="col-md-5">
+            <h2>{{postulante.nombre}} {{postulante.apellido}}</h2>
+        </div>
+    </div>
+    <br>
+
+    <form [formGroup]="formPostulante" (ngSubmit)="onSubmit()">
+        <div class="row">
+            <div class="col-md-3">
+                <label>Nombre: </label>
+            </div>
+            <div class="col-md-7">
+                <input class="form-control" type="text" formControlName="nombre" required>
+            </div>
+        </div>
+        
+        <br>
+        
+        <div class="row">
+            <div class="col-md-3">
+                <label>Apellido: </label>
+            </div>
+            <div class="col-md-7">
+                <input class="form-control" type="text" formControlName="apellido" required>
+            </div>
+        </div>
+
+        <br>
+
+        <div class="row">
+            <div class="col-md-3">
+                <label>Pais: </label>
+            </div>
+            <div class="col-md-7">
+                <input class="form-control" type="text" formControlName="pais" required>
+            </div>
+        </div>
+
+        <br>
+
+        <div class="row">
+            <div class="col-md-3">
+                <label>Provincia: </label>
+            </div>
+            <div class="col-md-7">
+                <input class="form-control" type="text" formControlName="provincia" required>
+            </div>
+        </div>
+
+        <br>
+
+        <div class="row">
+            <div class="col-md-3">
+                <label>Puesto: </label>
+            </div>
+            <div class="col-md-7">
+                <input class="form-control" type="text" formControlName="puesto" required>
+            </div>
+        </div>
+
+        <br>
+
+        <div class="row">
+            <div class="col-md-3">
+                <label>Contacto: </label>
+            </div>
+            <div class="col-md-7">
+                <input class="form-control" type="text" formControlName="email" required>
+            </div>
+        </div>
+
+        <br>
+
+        <div class="row">
+            <div class="col-md-3">
+                <label>Linkedin: </label>
+            </div>
+            <div class="col-md-7">
+                <input class="form-control" type="text" formControlName="linkedin" required>
+            </div>
+        </div>
+
+        <br>
+
+        <div class="row">
+            <div class="col-md-3">
+                <label>Portfolio: </label>
+            </div>
+            <div class="col-md-7">
+                <input class="form-control" type="text" formControlName="portfolio" required>
+            </div>
+        </div>
+        
+        <br>
+        
+        <div class="row">
+            <div class="col-md-3"><!--Espacio--></div>
+            <div class="col-md-3">
+                <button type="submit" class="btn btn-secondary" [disabled]="formPostulante.invalid">Guardar</button>
+            </div>
+        </div>
+        <br>
+
+    </form>
+
+</div>
+

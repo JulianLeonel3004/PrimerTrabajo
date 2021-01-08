@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { UsuariosService } from 'src/app/Core/services/usuarios.service';
 import { AuthenticationService } from 'src/app/Core/services/authentication.service';
+import { AngularFireAuth } from '@angular/fire/auth';
 
 @Component({
   selector: 'app-header',
@@ -14,7 +15,8 @@ export class HeaderComponent implements OnInit {
   
   constructor(private route:Router, 
     private usuariosService:UsuariosService,
-    private authenticationService:AuthenticationService) { }
+    private authenticationService:AuthenticationService,
+    private angularFireAuth:AngularFireAuth) { }
 
   ngOnInit() {
 
@@ -36,6 +38,12 @@ export class HeaderComponent implements OnInit {
     }).catch((error)=>{
       console.log("Error: " + error);
     });
+  }
+
+  irAPerfil(){
+    this.angularFireAuth.onAuthStateChanged(usuario=>{
+      this.route.navigate(['/perfil/' +usuario.uid ])
+   });
   }
 
 

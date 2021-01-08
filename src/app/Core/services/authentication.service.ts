@@ -1,6 +1,7 @@
 import { Injectable, EventEmitter } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { Observable } from 'rxjs';
+import { connectableObservableDescriptor } from 'rxjs/internal/observable/ConnectableObservable';
 
 
 @Injectable({
@@ -27,15 +28,18 @@ export class AuthenticationService {
     return this.angularFireAuth.signOut();
   }
 
-  usuario(){
-      var user = this.angularFireAuth.onAuthStateChanged(function(user) {
-        if (user) {
-          console.log(user);
-          
-        } else {
-          console.log("Falló");
-        }
-      });
+  usuario():any{
+       this.angularFireAuth.onAuthStateChanged(user=>{
+          console.log(user)
+         
+       });//(function(user) {
+      //   if (user) {
+      //     console.log(user);
+      //     return user;
+      //   } else {
+      //     console.log("Falló");
+      //   }
+      // });
 
     }
 }
