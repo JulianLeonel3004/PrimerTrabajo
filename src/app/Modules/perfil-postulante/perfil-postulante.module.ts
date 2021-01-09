@@ -4,6 +4,7 @@ import { PerfilPostulanteComponent } from './perfil-postulante/perfil-postulante
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { RouterModule, Routes } from '@angular/router';
+import { ModalActionComponent } from '../helpers/Components/modal-action/modal-action.component';
 
 
 const routes: Routes = [
@@ -22,6 +23,9 @@ const routes: Routes = [
     NgxSpinnerModule,
     RouterModule.forChild(routes)
   ],
-  exports:[PerfilPostulanteComponent]
+  exports:[PerfilPostulanteComponent],
+  entryComponents:[
+    ModalActionComponent
+  ]
 })
 export class PerfilPostulanteModule { }

@@ -4,6 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { Postulante } from 'src/app/Core/Modules/postulante';
 import { UsuariosService } from 'src/app/Core/services/usuarios.service';
+import { ModalActionComponent } from '../../helpers/Components/modal-action/modal-action.component';
 
 @Component({
   selector: 'app-perfil-postulante',
@@ -18,7 +19,8 @@ export class PerfilPostulanteComponent implements OnInit {
   constructor(private usuariosService:UsuariosService, 
     private spinnerService: NgxSpinnerService,
     private route: ActivatedRoute,
-    private formbuilder:FormBuilder) { }
+    private formbuilder:FormBuilder){}
+    //private modalService:NgbModal) { }
 
   ngOnInit() {
 
@@ -78,6 +80,15 @@ export class PerfilPostulanteComponent implements OnInit {
     this.postulante.email =  this.formPostulante.controls.email.value;
     this.postulante.linkedin =  this.formPostulante.controls.linkedin.value;
     this.postulante.portfolio =  this.formPostulante.controls.portfolio.value;
+  }
+
+  openModal(){
+    const modalRef = this.modalService.open(ModalActionComponent, { backdrop: true });
+    modalRef.componentInstance.title = "Hola!";
+    modalRef.componentInstance.message = "Hola Mundo";
+    modalRef.componentInstance.actionModal = ()=>{
+      console.log("Hola Mundo Modal!!");
+    };
   }
 
   onSubmit(){
