@@ -69,15 +69,27 @@ export class PerfilPostulanteComponent implements OnInit {
     this.formPostulante.controls.portfolio.setValue(this.postulante.portfolio);
   }
 
+  mapearPostulante(){
+    this.postulante.nombre =  this.formPostulante.controls.nombre.value;
+    this.postulante.apellido =  this.formPostulante.controls.apellido.value;
+    this.postulante.pais =  this.formPostulante.controls.pais.value;
+    this.postulante.provincia =  this.formPostulante.controls.provincia.value;
+    this.postulante.puesto =  this.formPostulante.controls.puesto.value;
+    this.postulante.email =  this.formPostulante.controls.email.value;
+    this.postulante.linkedin =  this.formPostulante.controls.linkedin.value;
+    this.postulante.portfolio =  this.formPostulante.controls.portfolio.value;
+  }
+
   onSubmit(){
     this.spinnerService.show();
+    this.mapearPostulante();
     this.usuariosService.editUser(this.postulante)
     .then(()=>{
-      console.log("usuario");
+      alert("Edición Completa");
       this.spinnerService.hide();
     })
     .catch(err=>{
-      console.log(err);
+      alert("Error al editar: " + err);
       this.spinnerService.hide();
       
     })  
