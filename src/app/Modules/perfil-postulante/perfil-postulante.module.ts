@@ -5,6 +5,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { RouterModule, Routes } from '@angular/router';
 import { ModalActionComponent } from '../helpers/Components/modal-action/modal-action.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { HelpersModule } from '../helpers/helpers.module';
 
 
 const routes: Routes = [
@@ -21,6 +23,8 @@ const routes: Routes = [
     ReactiveFormsModule,
     FormsModule,
     NgxSpinnerModule,
+    NgbModule,
+    HelpersModule,
     RouterModule.forChild(routes)
   ],
   exports:[PerfilPostulanteComponent],

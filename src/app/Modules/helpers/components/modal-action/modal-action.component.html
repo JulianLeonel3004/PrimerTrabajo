@@ -8,6 +8,6 @@
     <p>{{message}}</p>
 </div>
 <div class="modal-footer">
-    <button type="button" class="btn btn-outline-secondary" (click)="modal.dismiss('cancel click')">Cancel</button>
-    <button type="button" ngbAutofocus class="btn btn-danger" (click)="confirm()">Ok</button>
+    <button type="button" class="btn btn-outline-secondary" (click)="modal.dismiss('cancel click')">{{cancelName}}</button>
+    <button type="button" ngbAutofocus class="btn btn-danger" (click)="confirm()">{{okName}}</button>
 </div>

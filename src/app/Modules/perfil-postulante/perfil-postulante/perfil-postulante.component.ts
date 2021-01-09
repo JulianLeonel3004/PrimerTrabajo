@@ -5,6 +5,8 @@ import { NgxSpinnerService } from 'ngx-spinner';
 import { Postulante } from 'src/app/Core/Modules/postulante';
 import { UsuariosService } from 'src/app/Core/services/usuarios.service';
 import { ModalActionComponent } from '../../helpers/Components/modal-action/modal-action.component';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { MatDialogRef } from '@angular/material';
 
 @Component({
   selector: 'app-perfil-postulante',
@@ -19,8 +21,8 @@ export class PerfilPostulanteComponent implements OnInit {
   constructor(private usuariosService:UsuariosService, 
     private spinnerService: NgxSpinnerService,
     private route: ActivatedRoute,
-    private formbuilder:FormBuilder){}
-    //private modalService:NgbModal) { }
+    private formbuilder:FormBuilder,
+    private modalService:NgbModal) { }
 
   ngOnInit() {
 
@@ -84,10 +86,12 @@ export class PerfilPostulanteComponent implements OnInit {
 
   openModal(){
     const modalRef = this.modalService.open(ModalActionComponent, { backdrop: true });
-    modalRef.componentInstance.title = "Hola!";
-    modalRef.componentInstance.message = "Hola Mundo";
+    modalRef.componentInstance.title = "Eliminar cuenta";
+    modalRef.componentInstance.message = "¿Está seguro que desea eliminar su cuenta?";
+    modalRef.componentInstance.cancelName = "Cancelar";
+    modalRef.componentInstance.okName = "Sí, borrar mi cuenta";
     modalRef.componentInstance.actionModal = ()=>{
-      console.log("Hola Mundo Modal!!");
+      
     };
   }
 

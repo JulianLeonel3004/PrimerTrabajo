@@ -10,6 +10,8 @@ export class ModalActionComponent implements OnInit {
 
   @Input() title: string;
   @Input() message: string;
+  @Input() cancelName:string;
+  @Input() okName:string;
   @Input() actionModal:Function
   
   constructor(public modal: NgbActiveModal) { }
