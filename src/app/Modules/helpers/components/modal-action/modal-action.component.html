@@ -4,10 +4,21 @@
       <span aria-hidden="true">&times;</span>
     </button>
 </div>
+
+
 <div class="modal-body">
     <p>{{message}}</p>
-</div>
-<div class="modal-footer">
-    <button type="button" class="btn btn-outline-secondary" (click)="modal.dismiss('cancel click')">{{cancelName}}</button>
-    <button type="button" ngbAutofocus class="btn btn-danger" (click)="confirm()">{{okName}}</button>
+    <form [formGroup]="formRazon" (ngSubmit)="confirm(this.formRazon.value)">
+
+        <label>Dinos la razón, por favor.</label>
+        <input class="form-control" type="text" formControlName="razon" name="razon"  required>
+        <span *ngIf="this.formRazon.controls.razon.touched && this.formRazon.controls.razon.invalid" style="color: red;">*Este campo es obligatorio</span>
+        <br>
+
+        <div class="modal-footer">
+            <button type="button" class="btn btn-outline-secondary" (click)="modal.dismiss('cancel click')">{{cancelName}}</button>
+            <button type="submit" ngbAutofocus class="btn btn-danger" [disabled]="this.formRazon.invalid">{{okName}}</button>
+        </div>
+    
+    </form>
 </div>

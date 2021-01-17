@@ -1,5 +1,6 @@
 import { Injectable, EventEmitter } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
+import * as firebase from 'firebase';
 import { Observable } from 'rxjs';
 import { connectableObservableDescriptor } from 'rxjs/internal/observable/ConnectableObservable';
 
@@ -8,6 +9,7 @@ import { connectableObservableDescriptor } from 'rxjs/internal/observable/Connec
   providedIn: 'root'
 })
 export class AuthenticationService {
+
 
   constructor(private angularFireAuth:AngularFireAuth) { }
   
@@ -28,9 +30,19 @@ export class AuthenticationService {
     return this.angularFireAuth.signOut();
   }
 
+  currentUser(){
+    var user = firebase.auth().currentUser;
+    return user;
+  }
+
+  // delete(user:any){
+  //   return user.delete()
+  //   .then()
+  // }
+
   usuario():any{
        this.angularFireAuth.onAuthStateChanged(user=>{
-          console.log(user)
+       
          
        });//(function(user) {
       //   if (user) {

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { UsuariosService } from 'src/app/Core/services/usuarios.service';
 import { Postulante } from 'src/app/Core/Modules/postulante';
 import { NgxSpinnerService } from 'ngx-spinner';
+import { Subscription } from 'rxjs';
 // import { FormularioPostulanteComponent } from 'src/app/formulariosLogin/formulario-postulante/formulario-postulante.component';
 
 @Component({
@@ -17,6 +18,7 @@ export class TablaComponent implements OnInit {
   page:number;
   pageSize:number;
   cantidadRegistros:number;
+  getUsersSubscribe: Subscription;
 
   constructor(private usuariosService:UsuariosService, private spinner: NgxSpinnerService) { }
 
@@ -26,6 +28,11 @@ export class TablaComponent implements OnInit {
 
     this.page = 1;
     this.pageSize = 30;
+  }
+
+  ngOnDestroy(){
+    this.getUsersSubscribe.unsubscribe();
+    this.filas = null;
   }
 
   inicializarTabla(){
@@ -45,37 +52,41 @@ export class TablaComponent implements OnInit {
     this.columnas.push("Portfolio");
 
 
-    this.usuariosService.getUsers().subscribe((users)=>{
+    this.getUsersSubscribe = this.usuariosService.getUsers().subscribe((users)=>{
       usuarios = users; 
       
       usuarios.forEach(usuario=>{
-        fila = new Postulante();
-        
-        fila.nombre = usuario.nombre;
-        fila.apellido = usuario.apellido;
-        fila.pais = usuario.pais;
-        fila.provincia = usuario.provincia;
-        fila.puesto = usuario.puesto;
-        fila.email = usuario.email;
-        fila.linkedin = usuario.linkedin?usuario.linkedin:null;
-        fila.portfolio = usuario.portfolio?usuario.portfolio:null;
 
-        if(fila.linkedin != null && ( fila.linkedin && fila.linkedin.substring(0,8).toLowerCase() != "https://" && fila.linkedin.substring(0,7).toLowerCase() != "http://") ){  
-          fila.linkedin = "https://" + fila.linkedin;
-        
-        }
-        if(fila.portfolio != null && ( fila.linkedin && fila.linkedin.substring(0,8).toLowerCase() != "https://" && fila.linkedin.substring(0,7).toLowerCase() != "http://")){
-          fila.portfolio = "https://" + fila.portfolio;
-        }
-  
-        this.filas.push(fila);
+        if(!usuario.del)
+        {
+          fila = new Postulante();
+          
+          fila.nombre = usuario.nombre;
+          fila.apellido = usuario.apellido;
+          fila.pais = usuario.pais;
+          fila.provincia = usuario.provincia;
+          fila.puesto = usuario.puesto;
+          fila.email = usuario.email;
+          fila.linkedin = usuario.linkedin?usuario.linkedin:null;
+          fila.portfolio = usuario.portfolio?usuario.portfolio:null;
 
-        this.spinner.hide();
+          if(fila.linkedin != null && ( fila.linkedin && fila.linkedin.substring(0,8).toLowerCase() != "https://" && fila.linkedin.substring(0,7).toLowerCase() != "http://") ){  
+            fila.linkedin = "https://" + fila.linkedin;
+          
+          }
+          if(fila.portfolio != null && ( fila.linkedin && fila.linkedin.substring(0,8).toLowerCase() != "https://" && fila.linkedin.substring(0,7).toLowerCase() != "http://")){
+            fila.portfolio = "https://" + fila.portfolio;
+          }
+    
+          this.filas.push(fila);
+        }
+
       });
 
 
       this.cantidadRegistros = this.filas.length;
-
+      
+      this.spinner.hide();
     });
 
   }

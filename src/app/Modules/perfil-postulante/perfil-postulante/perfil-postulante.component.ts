@@ -7,6 +7,9 @@ import { UsuariosService } from 'src/app/Core/services/usuarios.service';
 import { ModalActionComponent } from '../../helpers/Components/modal-action/modal-action.component';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { MatDialogRef } from '@angular/material';
+import { AuthenticationGuard } from 'src/app/Core/services/authentication.guard';
+import { AuthenticationService } from 'src/app/Core/services/authentication.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-perfil-postulante',
@@ -17,12 +20,14 @@ export class PerfilPostulanteComponent implements OnInit {
 
   postulante:Postulante;
   formPostulante:FormGroup;
+  getUserSubs:Subscription;
 
   constructor(private usuariosService:UsuariosService, 
     private spinnerService: NgxSpinnerService,
     private route: ActivatedRoute,
     private formbuilder:FormBuilder,
-    private modalService:NgbModal) { }
+    private modalService:NgbModal,
+    private authenticationService:AuthenticationService) { }
 
   ngOnInit() {
 
@@ -32,12 +37,16 @@ export class PerfilPostulanteComponent implements OnInit {
 
     this.spinnerService.show();
 
-    this.usuariosService.getUserByid(uid).subscribe(postulante =>{
+   this.getUserSubs = this.usuariosService.getUserByid(uid).subscribe(postulante =>{
       this.postulante = postulante;
       this.cargarFormulario();
       this.spinnerService.hide();
     })
 
+  }
+
+  ngOnDestroy(){
+    this.getUserSubs.unsubscribe();
   }
 
 
@@ -84,13 +93,45 @@ export class PerfilPostulanteComponent implements OnInit {
     this.postulante.portfolio =  this.formPostulante.controls.portfolio.value;
   }
 
-  openModal(){
+  openModalDejarDePostularme(){
     const modalRef = this.modalService.open(ModalActionComponent, { backdrop: true });
-    modalRef.componentInstance.title = "Eliminar cuenta";
-    modalRef.componentInstance.message = "¿Está seguro que desea eliminar su cuenta?";
+    modalRef.componentInstance.title = "Dejar de postularme";
+    modalRef.componentInstance.message = "¿Está seguro que desea dejar de postularse?";
     modalRef.componentInstance.cancelName = "Cancelar";
-    modalRef.componentInstance.okName = "Sí, borrar mi cuenta";
-    modalRef.componentInstance.actionModal = ()=>{
+    modalRef.componentInstance.okName = "Sí";
+    modalRef.componentInstance.actionModal = (value)=>{
+      
+      this.postulante.del = true;
+      this.postulante.razon = value.razon;
+      this.usuariosService.editUser(this.postulante)
+      .then(()=>{
+        alert("Su perfil salió de la postulación");
+        
+      })
+      .catch(err=>{
+        alert(err);
+      })
+      
+    };
+  }
+
+
+  openModalVolverAPostularme(){
+    const modalRef = this.modalService.open(ModalActionComponent, { backdrop: true });
+    modalRef.componentInstance.title = "Volver a postularme";
+    modalRef.componentInstance.message = "¿Está seguro que desea volver a postularse?";
+    modalRef.componentInstance.cancelName = "Cancelar";
+    modalRef.componentInstance.okName = "Sí";
+    modalRef.componentInstance.actionModal = (value)=>{
+      this.postulante.del = false;
+      this.postulante.razon = value.razon;
+      this.usuariosService.editUser(this.postulante)
+      .then(()=>{
+        alert("Su perfil volvió a estar disponible")
+      })
+      .catch(err=>{
+        alert(err);
+      })
       
     };
   }

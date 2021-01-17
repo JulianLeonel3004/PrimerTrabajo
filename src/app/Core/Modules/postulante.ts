@@ -7,4 +7,6 @@ export class Postulante{
     email:string;
     linkedin?:string;
     portfolio?:string;
+    del?:boolean;
+    razon?:string;
 }

@@ -1,4 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
@@ -14,13 +15,23 @@ export class ModalActionComponent implements OnInit {
   @Input() okName:string;
   @Input() actionModal:Function
   
-  constructor(public modal: NgbActiveModal) { }
+  formRazon:FormGroup;
+
+  constructor(
+    public modal: NgbActiveModal,
+    private formBuilder:FormBuilder) { }
 
   ngOnInit() {
+    this.formRazon = this.formBuilder.group({
+      razon:[null, [Validators.required]]
+    })
   }
 
-  confirm() {
-    this.actionModal();
+  confirm(valueForm) {
+    this.actionModal(valueForm);
     this.modal.dismiss('confirm click');
   }
+  
+
+  
 }

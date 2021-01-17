@@ -25,8 +25,19 @@ export class UsuariosService {
     return this.angularFireDataBase.object('/users/' + user.uid).set(user);
   }
 
-  public editUser(user){debugger
+  public editUser(user){
     return this.angularFireDataBase.object('/users/' + user.uid).update(user);
+  }
+
+  public editUserRazon(user){
+    return this.angularFireDataBase.object('/usersRazon/' + user.uid).update(user);
+  }
+
+  public createUserRazon(user){
+    return this.angularFireDataBase.object('/usersRazon/' + user.uid).set(user);
+  }
+  public getUserByidUserRazon(uid):Observable<any>{
+    return this.angularFireDataBase.object('/usersRazon/'+ uid).valueChanges();
   }
 
 }

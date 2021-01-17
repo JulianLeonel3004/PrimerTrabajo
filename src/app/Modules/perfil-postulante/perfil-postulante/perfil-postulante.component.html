@@ -108,5 +108,6 @@
 </div>
 
 
-<button class="btn btn-danger" (click)="openModal()">Eliminar Cuenta</button>
+<button class="btn btn-danger" (click)="openModalDejarDePostularme()" *ngIf=" this.postulante && !this.postulante.del">Dejar de postularme</button>
+<button class="btn btn-danger" (click)="openModalVolverAPostularme()" *ngIf="this.postulante && this.postulante.del">Volver a postularme</button>
 
